@@ -13,9 +13,9 @@ The University Management System (UMS) is a comprehensive software solution desi
 ## Technologies Used
 
 - **Backend:** 
-  - Programming Language: [e.g., Python, Java, PHP]
-  - Framework: [e.g., Django, Spring, Laravel]
-  - Database: [e.g., MySQL, PostgreSQL, MongoDB]
+  - Programming Language: Java
+  - Framework: Spring Boot
+  - Database: MySQL
 
 - **Frontend:** 
   - HTML, CSS, JavaScript
@@ -30,8 +30,10 @@ The University Management System (UMS) is a comprehensive software solution desi
 
 ### Prerequisites
 
-- [List any prerequisites, e.g., Python, Node.js, etc.]
-- [Database setup details]
+- Java Development Kit (JDK) 8 or higher
+- Maven
+- Node.js and npm (if using a JavaScript framework for the frontend)
+- MySQL
 
 ### Steps
 
@@ -47,45 +49,52 @@ The University Management System (UMS) is a comprehensive software solution desi
     cd university-management-system
     ```
 
-3. **Install Dependencies:**
+3. **Install Backend Dependencies:**
+
+    ```bash
+    mvn clean install
+    ```
+
+4. **Install Frontend Dependencies:**
+
+    ```bash
+    cd frontend
+    npm install
+    cd ..
+    ```
+
+5. **Setup Database:**
+
+    - Create a MySQL database.
+    - Update the database configuration in `src/main/resources/application.properties`:
+
+    ```properties
+    spring.datasource.url=jdbc:mysql://localhost:3306/your_database_name
+    spring.datasource.username=your_username
+    spring.datasource.password=your_password
+    spring.jpa.hibernate.ddl-auto=update
+    ```
+
+    - Run database migrations (if applicable).
+
+6. **Run the Application:**
 
     For backend:
 
     ```bash
-    [command to install backend dependencies, e.g., pip install -r requirements.txt]
+    mvn spring-boot:run
     ```
 
     For frontend:
 
     ```bash
-    [command to install frontend dependencies, e.g., npm install]
+    cd frontend
+    npm start
     ```
 
-4. **Setup Database:**
+7. **Access the Application:**
 
-    [Instructions for setting up the database, e.g., running migrations]
-
-    ```bash
-    [command to setup database, e.g., python manage.py migrate]
-    ```
-
-5. **Run the Application:**
-
-    For backend:
-
-    ```bash
-    [command to start backend server, e.g., python manage.py runserver]
-    ```
-
-    For frontend:
-
-    ```bash
-    [command to start frontend server, e.g., npm start]
-    ```
-
-6. **Access the Application:**
-
-    Open your web browser and go to `http://localhost:8000` (or the appropriate URL).
+    Open your web browser and go to `http://localhost:8080` (or the appropriate URL for the backend server) and `http://localhost:3000` (or the appropriate URL for the frontend server).
 
 ## Usage
 
